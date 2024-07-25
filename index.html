@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCA Name Generator</title>
+</head>
+<body>
+    <h1>ACCA Name Generator</h1>
+    <form id="nameForm">
+        <label for="accaId">ACCA ID:</label><br>
+        <input type="text" id="accaId" name="accaId"><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob"><br>
+        <label for="docName">Docs Name:</label><br>
+        <input type="text" id="docName" name="docName"><br>
+        <input type="button" value="Generate Name" onclick="generateName()">
+    </form>
+    <p id="generatedName"></p>
+
+    <script>
+        function generateName() {
+            const accaId = document.getElementById('accaId').value;
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const docName = document.getElementById('docName').value;
+            const today = new Date().toISOString().split('T')[0];
+
+            const generatedName = `${accaId}_${name}_${dob}_${docName}_${today}`;
+            document.getElementById('generatedName').textContent = generatedName;
+        }
+    </script>
+</body>
+</html>
